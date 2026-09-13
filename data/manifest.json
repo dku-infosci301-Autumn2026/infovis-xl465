@@ -1,0 +1,35 @@
+{
+  "prepared_utc": "2026-09-13",
+  "blueprint_revision": "b4b9bd7f7b46c49a44eb7306eafb72e7a0dad1b7",
+  "vega_revision": "831e308cf9feba791db0c279dea5f7983ca98445",
+  "model": "sentence-transformers/all-MiniLM-L6-v2",
+  "model_revision": "1110a243fdf4706b3f48f1d95db1a4f5529b4d41",
+  "onnx_file": "onnx/model_quint8_avx2.onnx",
+  "scope": "Two illustrative systems only; no claim about all 101 systems",
+  "blueprint_license": "MIT stated in upstream README; no standalone LICENSE in inspected commit",
+  "vega_license": "BSD-3-Clause",
+  "model_license": "Apache-2.0 per model card",
+  "counts": {
+    "systems": 2,
+    "nodes": 27,
+    "edges": 40,
+    "examples": 6,
+    "mapped_nodes": 8
+  },
+  "sha256": {
+    "data/examples.json": "6e6a4f8d0a54c48b34e9d03badbf5d3142d61a5985ff43927acd3ef1ce66fc75",
+    "models/model.onnx": "b941bf19f1f1283680f449fa6a7336bb5600bdcd5f84d10ddc5cd72218a0fd21",
+    "models/README.md": "dcd602d2fd35c203a247304a06fec6654a12f7941b739f9221a064fe8dc3b7f0",
+    "models/tokenizer.json": "be50c3628f2bf5bb5e3a7f17b1f74611b2561a3a27eeab05e5aa30f411572037",
+    "data/blueprints/urbanpulse.json": "7035751f4aee2a4c457278871b789082904d1e00854c3c0c56d409a96d3da9fd",
+    "data/blueprints/taxivis.json": "490d863b5a8207c9e13eebc6713a49772f796663de623a4423bce622d65bfc0c",
+    "data/blueprints/UPSTREAM_README.md": "4c21ead813ddb84f2d4daa4850ba66de05f0c57652a2e05eca3ee9abc641f3cf",
+    "data/examples/histogram.vl.json": "94b40cd45399c7610efc20824a01a59c5dec26d920bc84b78dc09325bc2ebd35",
+    "data/examples/interactive_overview_detail.vl.json": "199826dad324c409f32a93d3b5724c3f0c2b2a1cdbefda2deab60fb3fd95d8d9",
+    "data/examples/point_2d.vl.json": "a08dce8ed790f8f87a2a240be7813e1bb98b4e36f445e665b84c7da07f94314c",
+    "data/examples/line.vl.json": "0c7d4fe28426aba821332ee738f8a87de1157daaba063991995fc99dc3b01cdf",
+    "data/examples/interactive_brush.vl.json": "40a2c4f60aa5d60872b0489e7c1a0fed5410621db13139af341d4412bb879259",
+    "data/examples/LICENSE": "f618900fd0d64046963b29f40590cdd1e341a2f41449f99110d82fd81fea808c",
+    "data/examples/interactive_query_widgets.vl.json": "fd44381c33a7d1f1f1e252ade4d5d6ea1ae8450dc1e978c7dbbaa55602c76f0b"
+  }
+}

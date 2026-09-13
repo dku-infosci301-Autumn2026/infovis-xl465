@@ -1,0 +1,10 @@
+# AI assistance and human verification
+Date: 2026-09-13. Tool: OpenAI Codex in ChatGPT Work; exact displayed model identifier was not available. User input: assignment, grading guide, roadmap, scorecard and Word template; user selected VA-Blueprint and requested help completing the assignment. Retrieved earlier materials: user's Week 1 draft and Week 2 Pay Another Way proposal; public airport repository.
+
+AI-assisted work: retrieve and compare sources; propose task retrieval plus linked examples; write Python/HTML/CSS/JavaScript; create proposed example links and 12 diagnostic fixtures; run code tests; generate document text and layout. These are not student-authored observations or verified student conclusions. The core argument is a suggested draft for the student to review and rewrite under course rules.
+
+Accepted technically: pinned corpus/model; explicit null example coverage; source annotations; fixed four-condition retrieval evaluation; local CPU inference; failure fallback; graph/table dual representation. Rejected: implying quotations are independently verified, inventing peer respondents, calling a personal repository a course deployment, interpreting search scores as confidence, and treating gallery examples as original system implementations.
+
+Actual human inputs traceable in earlier documents: interest in scientific accuracy and human-centered communication; chord structure/mode/accessibility decisions in Week 1; field-photo supply and instruction to leave metadata blank; critique that the old financial comparison was not intuitive; later airport-domain selection. No newly performed student code/source verification or participant test is asserted.
+
+Student must review the proposed research question and claims, all eight example mappings, source citations, photographs and permissions, three current visual decisions and actual test records. Initial observations and oral explanation remain Human-Only. No confidential peer manuscript was used. Do not sign the responsibility statement until you have performed the checks yourself.

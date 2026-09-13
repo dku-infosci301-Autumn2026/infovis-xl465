@@ -1,0 +1,1098 @@
+{
+  "systems": [
+    {
+      "id": "taxivis",
+      "title": "Visual Exploration of Big Spatio-Temporal Urban Data: A Study of New York City Taxi Trips",
+      "year": 2013
+    },
+    {
+      "id": "urbanpulse",
+      "title": "Urban Pulse: Capturing the Rhythm of Cities",
+      "year": 2017
+    }
+  ],
+  "nodes": [
+    {
+      "id": "taxivis:1",
+      "system": "taxivis",
+      "number": 1,
+      "name": "Taxi Trip",
+      "stage": "Data Loading",
+      "group": "Loader",
+      "description": "The data used in our study was provided by Taxi and Limousine Commission of New York City and contains information about all medallion taxi trips in 2009, 2011, and 2012.",
+      "inputs": [
+        "Raw CSV files from NYC Taxi and Limousine Commission"
+      ],
+      "outputs": [
+        "Structured dataset of taxi trips with attributes like trip id, taxi id, pickup/dropoff locations and times, distance, fare amount, tip amount, and toll amount"
+      ],
+      "citation": "Data and Design Requirements section: The data used in our study was provided by Taxi and Limousine Commission of New York City and contains information about all medallion taxi trips in 2009, 2011, and 2012.",
+      "examples": []
+    },
+    {
+      "id": "taxivis:2",
+      "system": "taxivis",
+      "number": 2,
+      "name": "Spatiotemporal Index",
+      "stage": "Data Processing",
+      "group": "Indexing",
+      "description": "We have built a specialized index based on k-d trees to support spatio-temporal queries at interactive rates.",
+      "inputs": [
+        "Structured dataset of taxi trips"
+      ],
+      "outputs": [
+        "Indexed data structure supporting spatio-temporal constraints"
+      ],
+      "citation": "The TaxiVis System section: We have built a specialized index based on k-d trees to support spatio-temporal queries at interactive rates.",
+      "examples": []
+    },
+    {
+      "id": "taxivis:3",
+      "system": "taxivis",
+      "number": 3,
+      "name": "Visual Query Engine",
+      "stage": "Data Processing",
+      "group": "Querying",
+      "description": "Users formulate queries visually, by interacting with maps and other visual representations. Internally, a textual query is generated which is then evaluated by the storage manager.",
+      "inputs": [
+        "User-defined visual queries",
+        "Indexed data structure"
+      ],
+      "outputs": [
+        "Query result set (subset of taxi trips)"
+      ],
+      "citation": "The TaxiVis System section: Users formulate queries visually, by interacting with maps and other visual representations. Internally, a textual query is generated which is then evaluated by the storage manager.",
+      "examples": []
+    },
+    {
+      "id": "taxivis:6",
+      "system": "taxivis",
+      "number": 6,
+      "name": "Map 2D",
+      "stage": "Visualization",
+      "group": "Geospatial",
+      "description": "Maps serve different purposes in our system. They provide a canvas for displaying query results, for users to specify spatial constraints and compose/refine queries.",
+      "inputs": [
+        "Query result set"
+      ],
+      "outputs": [
+        "Interactive 2D map view with pickups, drop-offs, directional constraints"
+      ],
+      "citation": "User Interface Components section: Maps serve different purposes in our system. They provide a canvas for displaying query results, for users to specify spatial constraints and compose/refine queries.",
+      "examples": []
+    },
+    {
+      "id": "taxivis:7",
+      "system": "taxivis",
+      "number": 7,
+      "name": "Overlay (Heatmap)",
+      "stage": "Visualization",
+      "group": "Geospatial",
+      "description": "Our system supports density summary visualizations or heat maps that can be used to show the distribution of pickups and/or dropoffs in an area.",
+      "inputs": [
+        "Query result set"
+      ],
+      "outputs": [
+        "Heatmap overlay on 2D map"
+      ],
+      "citation": "Query Result Visualization section: Our system supports density summary visualizations or heat maps that can be used to show the distribution of pickups and/or dropoffs in an area.",
+      "examples": []
+    },
+    {
+      "id": "taxivis:8",
+      "system": "taxivis",
+      "number": 8,
+      "name": "Grid Map",
+      "stage": "Visualization",
+      "group": "Geospatial",
+      "description": "A grid map is a set of cells where their geometries and visual representations can be customized by the users.",
+      "inputs": [
+        "Query result set"
+      ],
+      "outputs": [
+        "Grid-based map visualization by region (e.g., neighborhoods, zip codes)"
+      ],
+      "citation": "Query Result Visualization section: A grid map is a set of cells where their geometries and visual representations can be customized by the users.",
+      "examples": []
+    },
+    {
+      "id": "taxivis:9",
+      "system": "taxivis",
+      "number": 9,
+      "name": "Time Series",
+      "stage": "Visualization",
+      "group": "Infovis",
+      "description": "The information associated with the results of a query can be visualized using different representations within the data summary view, such as time series.",
+      "inputs": [
+        "Query result set"
+      ],
+      "outputs": [
+        "Time series plots of taxi trips over time"
+      ],
+      "citation": "User Interface Components section: The information associated with the results of a query can be visualized using different representations within the data summary view, such as time series.",
+      "examples": [
+        "line"
+      ]
+    },
+    {
+      "id": "taxivis:10",
+      "system": "taxivis",
+      "number": 10,
+      "name": "Histogram",
+      "stage": "Visualization",
+      "group": "Infovis",
+      "description": "The attribute selection view shows histograms that summarize the attribute values for the trips in the result set of the query.",
+      "inputs": [
+        "Query result set"
+      ],
+      "outputs": [
+        "Histograms of attribute distributions (e.g., fare, tip amount)"
+      ],
+      "citation": "Visual Query Specification section: The attribute selection view shows histograms that summarize the attribute values for the trips in the result set of the query.",
+      "examples": [
+        "histogram"
+      ]
+    },
+    {
+      "id": "taxivis:11",
+      "system": "taxivis",
+      "number": 11,
+      "name": "Scatter Plot",
+      "stage": "Visualization",
+      "group": "Infovis",
+      "description": "Scatter plots are used to examine the duration of trips to the airports at different times of the day.",
+      "inputs": [
+        "Query result set"
+      ],
+      "outputs": [
+        "Scatter plots showing relationships between attributes (e.g., trip duration vs. time of day)"
+      ],
+      "citation": "Exploring Query Results section: Scatter plots are used to examine the duration of trips to the airports at different times of the day.",
+      "examples": [
+        "point_2d"
+      ]
+    },
+    {
+      "id": "taxivis:12",
+      "system": "taxivis",
+      "number": 12,
+      "name": "Area Selection",
+      "stage": "Interaction",
+      "group": "Filter",
+      "description": "Spatial constraints are specified by polygons and arrows on the map view. These are created either by brushing or by selecting predefined polygons corresponding to NYC's neighborhoods, zip codes, and boroughs.",
+      "inputs": [
+        "User selection on map (polygons, arrows)"
+      ],
+      "outputs": [
+        "Spatial query constraints"
+      ],
+      "citation": "Visual Query Specification section: Spatial constraints are specified by polygons and arrows on the map view. These are created either by brushing or by selecting predefined polygons corresponding to NYC's neighborhoods, zip codes, and boroughs.",
+      "examples": []
+    },
+    {
+      "id": "taxivis:13",
+      "system": "taxivis",
+      "number": 13,
+      "name": "Temporal Selection",
+      "stage": "Interaction",
+      "group": "Filter",
+      "description": "Temporal constraints are specified using the time selection widgets. In the Regular Selection widget, the user defines an atomic temporal constraint by assigning the values of the start time and end time fields.",
+      "inputs": [
+        "User selection on time widget"
+      ],
+      "outputs": [
+        "Temporal query constraints"
+      ],
+      "citation": "Visual Query Specification section: Temporal constraints are specified using the time selection widgets. In the Regular Selection widget, the user defines an atomic temporal constraint by assigning the values of the start time and end time fields.",
+      "examples": [
+        "interactive_overview_detail"
+      ]
+    },
+    {
+      "id": "taxivis:14",
+      "system": "taxivis",
+      "number": 14,
+      "name": "Attribute Filter",
+      "stage": "Interaction",
+      "group": "Filter",
+      "description": "Attribute constraints are defined through the attribute selection view, which shows histograms that summarize the attribute values for the trips in the result set of the query.",
+      "inputs": [
+        "User selection on attribute histograms"
+      ],
+      "outputs": [
+        "Attribute query constraints"
+      ],
+      "citation": "Visual Query Specification section: Attribute constraints are defined through the attribute selection view, which shows histograms that summarize the attribute values for the trips in the result set of the query.",
+      "examples": [
+        "interactive_query_widgets"
+      ]
+    },
+    {
+      "id": "urbanpulse:1",
+      "system": "urbanpulse",
+      "number": 1,
+      "name": "Spatiotemporal Images Dataset",
+      "stage": "Data Loading",
+      "group": "Loader",
+      "description": "Loads Flickr data including image metadata (timestamps and geolocations) to capture the dynamic events of the city",
+      "inputs": [
+        "Raw Flickr data (images with spatiotemporal metadata)"
+      ],
+      "outputs": [
+        "Structured spatiotemporal dataset for density function computation"
+      ],
+      "citation": "All the data sets used in this paper are composed of a set of data points over space and time. (Introduction / Section 3)",
+      "examples": []
+    },
+    {
+      "id": "urbanpulse:2",
+      "system": "urbanpulse",
+      "number": 2,
+      "name": "2D Features",
+      "stage": "Data Loading",
+      "group": "Loader",
+      "description": "Loads a planar mesh representing the city's spatial domain",
+      "inputs": [
+        "Raw geographic data (e.g., city boundaries)"
+      ],
+      "outputs": [
+        "Triangulated 2D mesh representing the city's spatial features"
+      ],
+      "citation": "Mesh representation of a city. Given a city, the mesh corresponding to it represents the bounding box... (Mesh Representation section)",
+      "examples": []
+    },
+    {
+      "id": "urbanpulse:3",
+      "system": "urbanpulse",
+      "number": 3,
+      "name": "Prominent Density Feature Identification",
+      "stage": "Data Processing",
+      "group": "Extraction",
+      "description": "Aggregates high-persistence topological features to identify prominent locations based on high density focusing on the computed density rather than using the author's pulse terminology",
+      "inputs": [
+        "High-persistence topological features"
+      ],
+      "outputs": [
+        "Identified prominent density features (i.e. locations with high density)"
+      ],
+      "citation": "a prominent location is a high persistent maximum of a function... (Section 4.1)",
+      "examples": []
+    },
+    {
+      "id": "urbanpulse:4",
+      "system": "urbanpulse",
+      "number": 4,
+      "name": "Significant Density Profile",
+      "stage": "Data Processing",
+      "group": "Extraction",
+      "description": "Derives a binary (0/1) sequence indicating, for each time step, whether a significant (high-persistence) maximum is present at the location",
+      "inputs": [
+        "Density functions at the identified locations"
+      ],
+      "outputs": [
+        "Binary sequence (significant density profile) per location"
+      ],
+      "citation": "Significant Beats Bs: This is a 0/1 sequence indicating the absence/presence of a high persistent maximum... (Section 4.2 adapted)",
+      "examples": []
+    },
+    {
+      "id": "urbanpulse:5",
+      "system": "urbanpulse",
+      "number": 5,
+      "name": "Maxima Density Profile",
+      "stage": "Data Processing",
+      "group": "Extraction",
+      "description": "Computes a binary sequence that records, for each time step, whether any local maximum is present at the location, regardless of persistence",
+      "inputs": [
+        "Density functions at the identified locations"
+      ],
+      "outputs": [
+        "Binary sequence (maxima density profile) per location"
+      ],
+      "citation": "Maxima Beats Bm: This is a 0/1 sequence indicating the absence/presence of a maximum at the location... (Section 4.2 adapted)",
+      "examples": []
+    },
+    {
+      "id": "urbanpulse:6",
+      "system": "urbanpulse",
+      "number": 6,
+      "name": "Density Function Profile",
+      "stage": "Data Processing",
+      "group": "Extraction",
+      "description": "Generates a continuous time series capturing the variation of the density function value at the location, representing the magnitude of density over time",
+      "inputs": [
+        "Density functions at the identified locations"
+      ],
+      "outputs": [
+        "Continuous time series (density function profile) per location"
+      ],
+      "citation": "Function Beats Bf: This is a time series showing the variation of the scalar function at that location... (Section 4.2 adapted)",
+      "examples": []
+    },
+    {
+      "id": "urbanpulse:7",
+      "system": "urbanpulse",
+      "number": 7,
+      "name": "High-dimensional Density Feature Vector",
+      "stage": "Data Processing",
+      "group": "Ranking",
+      "description": "Constructs a high-dimensional feature vector from the three density profiles (significant, maxima, and function) and computes an L2-norm rank to quantify overall density intensity",
+      "inputs": [
+        "Combined density profiles across all resolutions"
+      ],
+      "outputs": [
+        "Numeric rank score derived from the L2 norm of the density feature vector"
+      ],
+      "citation": "For a given pulse P, its rank is computed as the L2 norm of its corresponding feature vector... (Section 4.3 adapted as density feature vector)",
+      "examples": []
+    },
+    {
+      "id": "urbanpulse:8",
+      "system": "urbanpulse",
+      "number": 8,
+      "name": "Euclidean Distance of Density Feature Vectors",
+      "stage": "Data Processing",
+      "group": "Similarity Calculation",
+      "description": "Calculates similarity between locations by computing the Euclidean distance between their high-dimensional density feature vectors",
+      "inputs": [
+        "High-dimensional density feature vectors"
+      ],
+      "outputs": [
+        "Similarity measure (L2 norm distance) between density features"
+      ],
+      "citation": "Pulse Similarity is defined as the L2 norm of the similarity vector computed from the differences between beats... (Section 4.3 adapted to density feature vectors)",
+      "examples": []
+    },
+    {
+      "id": "urbanpulse:9",
+      "system": "urbanpulse",
+      "number": 9,
+      "name": "Map 2D",
+      "stage": "Visualization",
+      "group": "Geospatial",
+      "description": "Renders a 2D map that displays the spatial regions corresponding to the identified density feature locations, optionally overlaying a heatmap of the computed density values",
+      "inputs": [
+        "Density feature location data",
+        "2D mesh geometry"
+      ],
+      "outputs": [
+        "2D map visualization"
+      ],
+      "citation": "Map widget. The map view component consists of one or more map widgets... (Section 6 adapted as Map 2D)",
+      "examples": []
+    },
+    {
+      "id": "urbanpulse:10",
+      "system": "urbanpulse",
+      "number": 10,
+      "name": "Overlay (Heatmap)",
+      "stage": "Visualization",
+      "group": "Geospatial",
+      "description": "Renders a heatmap overlay on the 2D map to visually represent the computed density values across different spatial locations",
+      "inputs": [
+        "Computed density values",
+        "2D spatial features (mesh)"
+      ],
+      "outputs": [
+        "2D heatmap overlay integrated with the map view"
+      ],
+      "citation": "optional heat map overlay of the density function. (Section 6 adapted)",
+      "examples": []
+    },
+    {
+      "id": "urbanpulse:11",
+      "system": "urbanpulse",
+      "number": 11,
+      "name": "Scatter Plot",
+      "stage": "Visualization",
+      "group": "Infovis",
+      "description": "Visualizes density ranking data using a scatter plot, enabling comparison of density features across different temporal resolutions",
+      "inputs": [
+        "Density rank scores"
+      ],
+      "outputs": [
+        "Scatter plot showing density feature rankings"
+      ],
+      "citation": "Linked scatter plots. The default mode of the Pulse Monitor consists of three linked scatter plots... (Section 6 adapted as Scatter Plot)",
+      "examples": [
+        "point_2d"
+      ]
+    },
+    {
+      "id": "urbanpulse:12",
+      "system": "urbanpulse",
+      "number": 12,
+      "name": "Line Chart",
+      "stage": "Visualization",
+      "group": "Infovis",
+      "description": "Displays the density function profile as a line chart plotting time steps against density values to illustrate temporal variations at a location",
+      "inputs": [
+        "Density function profile (continuous time series)"
+      ],
+      "outputs": [
+        "Line chart visualizing temporal variation of density magnitudes"
+      ],
+      "citation": "The pulse beat viewer visualizes function beats as a line plot... (Section 6.1 adapted as Line Chart)",
+      "examples": [
+        "line"
+      ]
+    },
+    {
+      "id": "urbanpulse:13",
+      "system": "urbanpulse",
+      "number": 13,
+      "name": "Plot Brush",
+      "stage": "Interaction",
+      "group": "Filter",
+      "description": "Enables users to filter density feature locations by brushing over the scatter plot, linking the selection to updates across all visualizations",
+      "inputs": [
+        "User brush input on the scatter plot",
+        "Density rank data"
+      ],
+      "outputs": [
+        "Filtered density feature locations highlighted in both scatter plot and map view"
+      ],
+      "citation": "Pulse filtering and exploration. Users can select pulses of interest by brushing one of the scatter plots... (Section 6.2 adapted as Scatter Plot Brush)",
+      "examples": [
+        "interactive_brush"
+      ]
+    },
+    {
+      "id": "urbanpulse:14",
+      "system": "urbanpulse",
+      "number": 14,
+      "name": "Area Selection",
+      "stage": "Interaction",
+      "group": "Filter",
+      "description": "Allows users to directly select a geographic area on the map to filter and display density feature locations within that area",
+      "inputs": [
+        "User-drawn geographic area",
+        "Density feature location"
+      ],
+      "outputs": [
+        "Density features within the selected area are highlighted/filtered"
+      ],
+      "citation": "The map view component provides spatial context for pulses... (Section 6 inferred for Area Selection)",
+      "examples": []
+    },
+    {
+      "id": "urbanpulse:15",
+      "system": "urbanpulse",
+      "number": 15,
+      "name": "Pulse Selection",
+      "stage": "Interaction",
+      "group": "Filter",
+      "description": "Queries for similar pulses based on similarity measures and user input returns a ranked list of similar pulses for visualization",
+      "inputs": [
+        "Similarity measures",
+        "A user-selected query pulse"
+      ],
+      "outputs": [
+        "Ranked list of similar pulses to update visualizations (e.g., scatter plot)"
+      ],
+      "citation": "...similarity and vice versa. For example, consider the pulse corresponding to Alcatraz Island in San Francisco (SF) shown in Fig. 5... Section 4.3",
+      "examples": []
+    }
+  ],
+  "edges": [
+    {
+      "source": "taxivis:1",
+      "target": "taxivis:2",
+      "kind": "data",
+      "kind_rule": "derived from source stage; not explicit edge typing"
+    },
+    {
+      "source": "taxivis:2",
+      "target": "taxivis:3",
+      "kind": "data",
+      "kind_rule": "derived from source stage; not explicit edge typing"
+    },
+    {
+      "source": "taxivis:3",
+      "target": "taxivis:6",
+      "kind": "data",
+      "kind_rule": "derived from source stage; not explicit edge typing"
+    },
+    {
+      "source": "taxivis:3",
+      "target": "taxivis:7",
+      "kind": "data",
+      "kind_rule": "derived from source stage; not explicit edge typing"
+    },
+    {
+      "source": "taxivis:3",
+      "target": "taxivis:8",
+      "kind": "data",
+      "kind_rule": "derived from source stage; not explicit edge typing"
+    },
+    {
+      "source": "taxivis:3",
+      "target": "taxivis:9",
+      "kind": "data",
+      "kind_rule": "derived from source stage; not explicit edge typing"
+    },
+    {
+      "source": "taxivis:3",
+      "target": "taxivis:10",
+      "kind": "data",
+      "kind_rule": "derived from source stage; not explicit edge typing"
+    },
+    {
+      "source": "taxivis:3",
+      "target": "taxivis:11",
+      "kind": "data",
+      "kind_rule": "derived from source stage; not explicit edge typing"
+    },
+    {
+      "source": "taxivis:6",
+      "target": "taxivis:12",
+      "kind": "data",
+      "kind_rule": "derived from source stage; not explicit edge typing"
+    },
+    {
+      "source": "taxivis:7",
+      "target": "taxivis:6",
+      "kind": "data",
+      "kind_rule": "derived from source stage; not explicit edge typing"
+    },
+    {
+      "source": "taxivis:7",
+      "target": "taxivis:12",
+      "kind": "data",
+      "kind_rule": "derived from source stage; not explicit edge typing"
+    },
+    {
+      "source": "taxivis:8",
+      "target": "taxivis:12",
+      "kind": "data",
+      "kind_rule": "derived from source stage; not explicit edge typing"
+    },
+    {
+      "source": "taxivis:9",
+      "target": "taxivis:13",
+      "kind": "data",
+      "kind_rule": "derived from source stage; not explicit edge typing"
+    },
+    {
+      "source": "taxivis:10",
+      "target": "taxivis:14",
+      "kind": "data",
+      "kind_rule": "derived from source stage; not explicit edge typing"
+    },
+    {
+      "source": "taxivis:11",
+      "target": "taxivis:14",
+      "kind": "data",
+      "kind_rule": "derived from source stage; not explicit edge typing"
+    },
+    {
+      "source": "taxivis:12",
+      "target": "taxivis:3",
+      "kind": "interaction",
+      "kind_rule": "derived from source stage; not explicit edge typing"
+    },
+    {
+      "source": "taxivis:13",
+      "target": "taxivis:3",
+      "kind": "interaction",
+      "kind_rule": "derived from source stage; not explicit edge typing"
+    },
+    {
+      "source": "taxivis:14",
+      "target": "taxivis:3",
+      "kind": "interaction",
+      "kind_rule": "derived from source stage; not explicit edge typing"
+    },
+    {
+      "source": "urbanpulse:1",
+      "target": "urbanpulse:3",
+      "kind": "data",
+      "kind_rule": "derived from source stage; not explicit edge typing"
+    },
+    {
+      "source": "urbanpulse:2",
+      "target": "urbanpulse:9",
+      "kind": "data",
+      "kind_rule": "derived from source stage; not explicit edge typing"
+    },
+    {
+      "source": "urbanpulse:2",
+      "target": "urbanpulse:10",
+      "kind": "data",
+      "kind_rule": "derived from source stage; not explicit edge typing"
+    },
+    {
+      "source": "urbanpulse:3",
+      "target": "urbanpulse:4",
+      "kind": "data",
+      "kind_rule": "derived from source stage; not explicit edge typing"
+    },
+    {
+      "source": "urbanpulse:3",
+      "target": "urbanpulse:5",
+      "kind": "data",
+      "kind_rule": "derived from source stage; not explicit edge typing"
+    },
+    {
+      "source": "urbanpulse:3",
+      "target": "urbanpulse:6",
+      "kind": "data",
+      "kind_rule": "derived from source stage; not explicit edge typing"
+    },
+    {
+      "source": "urbanpulse:3",
+      "target": "urbanpulse:9",
+      "kind": "data",
+      "kind_rule": "derived from source stage; not explicit edge typing"
+    },
+    {
+      "source": "urbanpulse:4",
+      "target": "urbanpulse:7",
+      "kind": "data",
+      "kind_rule": "derived from source stage; not explicit edge typing"
+    },
+    {
+      "source": "urbanpulse:5",
+      "target": "urbanpulse:7",
+      "kind": "data",
+      "kind_rule": "derived from source stage; not explicit edge typing"
+    },
+    {
+      "source": "urbanpulse:6",
+      "target": "urbanpulse:7",
+      "kind": "data",
+      "kind_rule": "derived from source stage; not explicit edge typing"
+    },
+    {
+      "source": "urbanpulse:6",
+      "target": "urbanpulse:12",
+      "kind": "data",
+      "kind_rule": "derived from source stage; not explicit edge typing"
+    },
+    {
+      "source": "urbanpulse:7",
+      "target": "urbanpulse:8",
+      "kind": "data",
+      "kind_rule": "derived from source stage; not explicit edge typing"
+    },
+    {
+      "source": "urbanpulse:7",
+      "target": "urbanpulse:10",
+      "kind": "data",
+      "kind_rule": "derived from source stage; not explicit edge typing"
+    },
+    {
+      "source": "urbanpulse:7",
+      "target": "urbanpulse:11",
+      "kind": "data",
+      "kind_rule": "derived from source stage; not explicit edge typing"
+    },
+    {
+      "source": "urbanpulse:8",
+      "target": "urbanpulse:11",
+      "kind": "data",
+      "kind_rule": "derived from source stage; not explicit edge typing"
+    },
+    {
+      "source": "urbanpulse:9",
+      "target": "urbanpulse:14",
+      "kind": "data",
+      "kind_rule": "derived from source stage; not explicit edge typing"
+    },
+    {
+      "source": "urbanpulse:9",
+      "target": "urbanpulse:15",
+      "kind": "data",
+      "kind_rule": "derived from source stage; not explicit edge typing"
+    },
+    {
+      "source": "urbanpulse:10",
+      "target": "urbanpulse:9",
+      "kind": "data",
+      "kind_rule": "derived from source stage; not explicit edge typing"
+    },
+    {
+      "source": "urbanpulse:11",
+      "target": "urbanpulse:13",
+      "kind": "data",
+      "kind_rule": "derived from source stage; not explicit edge typing"
+    },
+    {
+      "source": "urbanpulse:13",
+      "target": "urbanpulse:7",
+      "kind": "interaction",
+      "kind_rule": "derived from source stage; not explicit edge typing"
+    },
+    {
+      "source": "urbanpulse:14",
+      "target": "urbanpulse:3",
+      "kind": "interaction",
+      "kind_rule": "derived from source stage; not explicit edge typing"
+    },
+    {
+      "source": "urbanpulse:15",
+      "target": "urbanpulse:7",
+      "kind": "interaction",
+      "kind_rule": "derived from source stage; not explicit edge typing"
+    }
+  ],
+  "examples": [
+    {
+      "id": "line",
+      "description": "Google's stock price over time.",
+      "filename": "line.vl.json",
+      "url": "https://vega.github.io/vega-lite/examples/line.html",
+      "source_url": "https://github.com/vega/vega-lite/blob/831e308cf9feba791db0c279dea5f7983ca98445/examples/specs/line.vl.json",
+      "component_ids": [
+        "urbanpulse:12",
+        "taxivis:9"
+      ],
+      "mapping_status": "AI-assisted proposed analogy; not source-system implementation; student review pending",
+      "spec": {
+        "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
+        "description": "Google's stock price over time.",
+        "data": {
+          "url": "data/stocks.csv"
+        },
+        "transform": [
+          {
+            "filter": "datum.symbol==='GOOG'"
+          }
+        ],
+        "mark": "line",
+        "encoding": {
+          "x": {
+            "field": "date",
+            "type": "temporal"
+          },
+          "y": {
+            "field": "price",
+            "type": "quantitative"
+          }
+        }
+      }
+    },
+    {
+      "id": "point_2d",
+      "description": "A scatterplot showing horsepower and miles per gallons for various cars.",
+      "filename": "point_2d.vl.json",
+      "url": "https://vega.github.io/vega-lite/examples/point_2d.html",
+      "source_url": "https://github.com/vega/vega-lite/blob/831e308cf9feba791db0c279dea5f7983ca98445/examples/specs/point_2d.vl.json",
+      "component_ids": [
+        "urbanpulse:11",
+        "taxivis:11"
+      ],
+      "mapping_status": "AI-assisted proposed analogy; not source-system implementation; student review pending",
+      "spec": {
+        "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
+        "description": "A scatterplot showing horsepower and miles per gallons for various cars.",
+        "data": {
+          "url": "data/cars.json"
+        },
+        "mark": "point",
+        "encoding": {
+          "x": {
+            "field": "Horsepower",
+            "type": "quantitative"
+          },
+          "y": {
+            "field": "Miles_per_Gallon",
+            "type": "quantitative"
+          }
+        }
+      }
+    },
+    {
+      "id": "histogram",
+      "description": "",
+      "filename": "histogram.vl.json",
+      "url": "https://vega.github.io/vega-lite/examples/histogram.html",
+      "source_url": "https://github.com/vega/vega-lite/blob/831e308cf9feba791db0c279dea5f7983ca98445/examples/specs/histogram.vl.json",
+      "component_ids": [
+        "taxivis:10"
+      ],
+      "mapping_status": "AI-assisted proposed analogy; not source-system implementation; student review pending",
+      "spec": {
+        "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
+        "data": {
+          "url": "data/movies.json"
+        },
+        "mark": "bar",
+        "encoding": {
+          "x": {
+            "bin": true,
+            "field": "IMDB Rating"
+          },
+          "y": {
+            "aggregate": "count"
+          }
+        }
+      }
+    },
+    {
+      "id": "interactive_brush",
+      "description": "Drag out a rectangular brush to highlight points.",
+      "filename": "interactive_brush.vl.json",
+      "url": "https://vega.github.io/vega-lite/examples/interactive_brush.html",
+      "source_url": "https://github.com/vega/vega-lite/blob/831e308cf9feba791db0c279dea5f7983ca98445/examples/specs/interactive_brush.vl.json",
+      "component_ids": [
+        "urbanpulse:13"
+      ],
+      "mapping_status": "AI-assisted proposed analogy; not source-system implementation; student review pending",
+      "spec": {
+        "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
+        "description": "Drag out a rectangular brush to highlight points.",
+        "data": {
+          "url": "data/cars.json"
+        },
+        "params": [
+          {
+            "name": "brush",
+            "select": "interval",
+            "value": {
+              "x": [
+                55,
+                160
+              ],
+              "y": [
+                13,
+                37
+              ]
+            }
+          }
+        ],
+        "mark": "point",
+        "encoding": {
+          "x": {
+            "field": "Horsepower",
+            "type": "quantitative"
+          },
+          "y": {
+            "field": "Miles_per_Gallon",
+            "type": "quantitative"
+          },
+          "color": {
+            "condition": {
+              "param": "brush",
+              "field": "Cylinders",
+              "type": "ordinal"
+            },
+            "value": "grey"
+          }
+        }
+      }
+    },
+    {
+      "id": "interactive_overview_detail",
+      "description": "",
+      "filename": "interactive_overview_detail.vl.json",
+      "url": "https://vega.github.io/vega-lite/examples/interactive_overview_detail.html",
+      "source_url": "https://github.com/vega/vega-lite/blob/831e308cf9feba791db0c279dea5f7983ca98445/examples/specs/interactive_overview_detail.vl.json",
+      "component_ids": [
+        "taxivis:13"
+      ],
+      "mapping_status": "AI-assisted proposed analogy; not source-system implementation; student review pending",
+      "spec": {
+        "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
+        "data": {
+          "url": "data/sp500.csv"
+        },
+        "vconcat": [
+          {
+            "width": 480,
+            "mark": "area",
+            "encoding": {
+              "x": {
+                "field": "date",
+                "type": "temporal",
+                "scale": {
+                  "domain": {
+                    "param": "brush"
+                  }
+                },
+                "axis": {
+                  "title": ""
+                }
+              },
+              "y": {
+                "field": "price",
+                "type": "quantitative"
+              }
+            }
+          },
+          {
+            "width": 480,
+            "height": 60,
+            "mark": "area",
+            "params": [
+              {
+                "name": "brush",
+                "select": {
+                  "type": "interval",
+                  "encodings": [
+                    "x"
+                  ]
+                }
+              }
+            ],
+            "encoding": {
+              "x": {
+                "field": "date",
+                "type": "temporal"
+              },
+              "y": {
+                "field": "price",
+                "type": "quantitative",
+                "axis": {
+                  "tickCount": 3,
+                  "grid": false
+                }
+              }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "interactive_query_widgets",
+      "description": "Drag the sliders to highlight points.",
+      "filename": "interactive_query_widgets.vl.json",
+      "url": "https://vega.github.io/vega-lite/examples/interactive_query_widgets.html",
+      "source_url": "https://github.com/vega/vega-lite/blob/831e308cf9feba791db0c279dea5f7983ca98445/examples/specs/interactive_query_widgets.vl.json",
+      "component_ids": [
+        "taxivis:14"
+      ],
+      "mapping_status": "AI-assisted proposed analogy; not source-system implementation; student review pending",
+      "spec": {
+        "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
+        "description": "Drag the sliders to highlight points.",
+        "data": {
+          "url": "data/cars.json"
+        },
+        "transform": [
+          {
+            "calculate": "year(datum.Year)",
+            "as": "Year"
+          }
+        ],
+        "layer": [
+          {
+            "params": [
+              {
+                "name": "CylYr",
+                "value": [
+                  {
+                    "Cylinders": 4,
+                    "Year": 1977
+                  }
+                ],
+                "select": {
+                  "type": "point",
+                  "fields": [
+                    "Cylinders",
+                    "Year"
+                  ]
+                },
+                "bind": {
+                  "Cylinders": {
+                    "input": "range",
+                    "min": 3,
+                    "max": 8,
+                    "step": 1
+                  },
+                  "Year": {
+                    "input": "range",
+                    "min": 1969,
+                    "max": 1981,
+                    "step": 1
+                  }
+                }
+              }
+            ],
+            "mark": "circle",
+            "encoding": {
+              "x": {
+                "field": "Horsepower",
+                "type": "quantitative"
+              },
+              "y": {
+                "field": "Miles_per_Gallon",
+                "type": "quantitative"
+              },
+              "color": {
+                "condition": {
+                  "param": "CylYr",
+                  "field": "Origin",
+                  "type": "nominal"
+                },
+                "value": "grey"
+              }
+            }
+          },
+          {
+            "transform": [
+              {
+                "filter": {
+                  "param": "CylYr"
+                }
+              }
+            ],
+            "mark": "circle",
+            "encoding": {
+              "x": {
+                "field": "Horsepower",
+                "type": "quantitative"
+              },
+              "y": {
+                "field": "Miles_per_Gallon",
+                "type": "quantitative"
+              },
+              "color": {
+                "field": "Origin",
+                "type": "nominal"
+              },
+              "size": {
+                "value": 100
+              }
+            }
+          }
+        ]
+      }
+    }
+  ],
+  "manifest": {
+    "prepared_utc": "2026-09-13",
+    "blueprint_revision": "b4b9bd7f7b46c49a44eb7306eafb72e7a0dad1b7",
+    "vega_revision": "831e308cf9feba791db0c279dea5f7983ca98445",
+    "model": "sentence-transformers/all-MiniLM-L6-v2",
+    "model_revision": "1110a243fdf4706b3f48f1d95db1a4f5529b4d41",
+    "onnx_file": "onnx/model_quint8_avx2.onnx",
+    "scope": "Two illustrative systems only; no claim about all 101 systems",
+    "blueprint_license": "MIT stated in upstream README; no standalone LICENSE in inspected commit",
+    "vega_license": "BSD-3-Clause",
+    "model_license": "Apache-2.0 per model card",
+    "counts": {
+      "systems": 2,
+      "nodes": 27,
+      "edges": 40,
+      "examples": 6,
+      "mapped_nodes": 8
+    },
+    "sha256": {
+      "data/examples.json": "6e6a4f8d0a54c48b34e9d03badbf5d3142d61a5985ff43927acd3ef1ce66fc75",
+      "models/model.onnx": "b941bf19f1f1283680f449fa6a7336bb5600bdcd5f84d10ddc5cd72218a0fd21",
+      "models/README.md": "dcd602d2fd35c203a247304a06fec6654a12f7941b739f9221a064fe8dc3b7f0",
+      "models/tokenizer.json": "be50c3628f2bf5bb5e3a7f17b1f74611b2561a3a27eeab05e5aa30f411572037",
+      "data/blueprints/urbanpulse.json": "7035751f4aee2a4c457278871b789082904d1e00854c3c0c56d409a96d3da9fd",
+      "data/blueprints/taxivis.json": "490d863b5a8207c9e13eebc6713a49772f796663de623a4423bce622d65bfc0c",
+      "data/blueprints/UPSTREAM_README.md": "4c21ead813ddb84f2d4daa4850ba66de05f0c57652a2e05eca3ee9abc641f3cf",
+      "data/examples/histogram.vl.json": "94b40cd45399c7610efc20824a01a59c5dec26d920bc84b78dc09325bc2ebd35",
+      "data/examples/interactive_overview_detail.vl.json": "199826dad324c409f32a93d3b5724c3f0c2b2a1cdbefda2deab60fb3fd95d8d9",
+      "data/examples/point_2d.vl.json": "a08dce8ed790f8f87a2a240be7813e1bb98b4e36f445e665b84c7da07f94314c",
+      "data/examples/line.vl.json": "0c7d4fe28426aba821332ee738f8a87de1157daaba063991995fc99dc3b01cdf",
+      "data/examples/interactive_brush.vl.json": "40a2c4f60aa5d60872b0489e7c1a0fed5410621db13139af341d4412bb879259",
+      "data/examples/LICENSE": "f618900fd0d64046963b29f40590cdd1e341a2f41449f99110d82fd81fea808c",
+      "data/examples/interactive_query_widgets.vl.json": "fd44381c33a7d1f1f1e252ade4d5d6ea1ae8450dc1e978c7dbbaa55602c76f0b"
+    }
+  }
+}
